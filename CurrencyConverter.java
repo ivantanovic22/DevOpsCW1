@@ -14,7 +14,10 @@ public class CurrencyConverter {
 
                 // For amounts Conversion
                 switch (currency){
-                        case "dollars" :
+      
+		case "default":
+			break;
+                  case "dollars" :
                                 // For Dollar Conversion
                                 pound = amount * 0.74;
                                 System.out.println(amount + " Dollars = " + f.format(pound) + " Pounds");
