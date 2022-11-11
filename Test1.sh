@@ -1,6 +1,6 @@
 source Test1.sh
 
-$result
+$output
 
 expected =$(" 0.74 Pounds ")
 
