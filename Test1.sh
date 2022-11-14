@@ -1,34 +1,30 @@
 #!/bin/bash
-amount="1 dollars"
-var=[ java CurrencyConverter $amount ]
-if [ "$var" == 0.74 ]
-then
-        echo "Thanks"
-else
-        echo "failed"
-fi
+
+amount="1 euros"
+correctP="1.0 Pounds = 1.36 Dollars 1.0 Pounds = 1.19 Euros Thank you for using the converter."
+correctD="1.0 Dollars = 0.74 Pounds 1.0 Dollars = 0.88 Euros Thank you for using the converter."
+correctE="1.0 Euros = 1.13 Dollars 1.0 Euros = 0.84 Pounds Thank you for using the converter."
+var=$(java CurrencyConverter $amount)
+
 if [ ! -n "$var" ]
 then
-      echo "A Value must be inputted"
+       echo "A Value must be inputted"
 else
-  echo "Test Passed"
+        echo "Test Passed Value picked up"
+        echo $var
 fi
-if [ "$amount" == "1 dollars" ] || [ "$amount" == "1 pounds" ] || [ "$amount" == "1 euros" ]
+if [ "$amount" == "1 dollars" ] || [ "$amount" == "1 pounds" ] || [ "$amount" == "1 euros" ] || [ "$amount" == "1 Dollars" ] || [ "$amount" == "1 Pounds" ] || [ "$amount" == "1 Euros" ] || [ "$amount" == "1 DOLLARS" ] || [ "$amount" == "1 POUNDS" ] || [ "$amount" == "1 EUROS" ]
 then 
-	echo "Test Passed"
+	echo "Test Passed Format correct"
 else 
-	echo "Input must be in correct format e.g 50 dollars"
+	echo $amount
+	echo "Input must be in correct format e.g 50 dollars, 50 Dollars, 50 DOLLARS"
 fi
-if [ "$amount" == "1 Dollars" ] || [ "$amount" == "1 Pounds" ] || [ "$amount" == "1 Euros" ]
-then 
-	echo "Test Passed"
-else
-	echo "Test Failed"
-fi
-if [ "$amount" == "1 DOLLARS" ] || [ "$amount" == "1 POUNDS" ] || [ "$amount" == "1 EUROS" ]
+if   [ "$var" == "$correct" ] || [ "$var" == "$correctD" ] || [ "$var" == "$correctE" ]
 then
-        echo "Test Passed"
+        echo "Test Passed Conversion Correct"
 else
-        echo "Test Failed"
+        echo "Conversion Not Correct. 1 Dollar = 0.74 Pounds, 0.88 Euros 1 Pound = 1.36 Dollars, 1.19 Euros 1 Euro = 1.13 Dollars, 0.84 Pounds."
 fi
+
 
