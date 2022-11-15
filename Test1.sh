@@ -5,6 +5,7 @@ correctD="1.0 Dollars = 0.74 Pounds 1.0 Dollars = 0.88 Euros Thank you for using
 correctE="1.0 Euros = 1.31 Dollars 1.0 Euros = 0.84 Pounds Thank you for using the converter."
 var=$(java CurrencyConverter $amount)
 	echo "Welcome"
+	echo "Recording Demo"
 if [ ! -n "$var" ]
 then
        echo "A Value must be inputted"
